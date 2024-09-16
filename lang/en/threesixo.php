@@ -170,3 +170,7 @@ $string['undodecline'] = 'Undo decline';
 $string['view'] = 'View';
 $string['viewfeedbackforuser'] = 'View feedback for user';
 $string['viewfeedbackreport'] = 'View feedback report';
+$string['applyrestriction'] = 'Apply restriction';
+$string['donotapplyrestriction'] = 'Do not apply';
+$string['hierarchyrestricted'] = 'Enable Hierarchy';
+$string['applyhierarchy_help'] = 'If enabled in addition to restricted to course participants users will only appear if they are part of the users hierarchy. (This can be their learners or their managers).';
