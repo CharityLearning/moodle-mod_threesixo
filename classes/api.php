@@ -484,7 +484,7 @@ class api {
 
         $wheres = [];
         // Hierarchy Hack.
-        $threethreesixosizo = $DB->get_record('threesixo', ['id' => $threesixtyid]);
+        $threesixo = $DB->get_record('threesixo', ['id' => $threesixtyid]);
         if (!is_siteadmin() && $threesixo->applyhierarchy) {
             $hierarchy = new \local_hierarchy\query();
             $managers = $hierarchy->get_managers_array();
