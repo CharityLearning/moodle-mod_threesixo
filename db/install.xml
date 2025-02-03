@@ -22,6 +22,7 @@
         <FIELD NAME="releasing" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Whether to release this feedback to the participants 0 - Closed to participants. Participants cannot view the feedback given to them. Only those with the capability. 1 - Open to participants. Participants can view the feedback given to them any time. 2 - Manual release. Participants can view the feedback given to them when released by users who have the capability to manage the 360 instance (e.g. teacher, manager, admin). 3 - Release after the activity has closed"/>
         <FIELD NAME="released" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="For instances that are manually released. 0 = Not yet released. 1 = Released."/>
         <FIELD NAME="undodecline" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Whether to allow participants to undo their declined feedbacks to other users. 0 - Do not allow. 1 - Allow."/>
+        <FIELD NAME="applyhierarchy" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
       </FIELDS>
       <KEYS>
         <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for 360-degree feedback"/>

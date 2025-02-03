@@ -492,7 +492,23 @@ class api {
         $userssqlparams = ['threesixtyid' => $threesixtyid, 'userid' => $userid];
 
         $wheres = [];
-
+        // Hierarchy Hack.
+        $threesixo = $DB->get_record('threesixo', ['id' => $threesixtyid]);
+        if (!is_siteadmin() && $threesixo->applyhierarchy) {
+            $hierarchy = new \local_hierarchy\query();
+            $managers = $hierarchy->get_managers_array();
+            $users = $hierarchy->getuserarray();
+            $allmatchingusers = array_merge($users, $managers);
+            $audienceaboveandbelow = 0;
+            foreach ($allmatchingusers as $matchinguser) {
+                if (isset($matchinguser->id)) {
+                    $audienceaboveandbelow .= ', '.$matchinguser->id;
+                } else {
+                    $audienceaboveandbelow .= ', '.$matchinguser->userid;
+                }
+            }
+            $wheres[] = 'u.id IN ('.$audienceaboveandbelow.')';
+        }
         if (!$includeself) {
             $wheres[] = 'u.id <> :userid2';
             $userssqlparams['userid2'] = $userid;
