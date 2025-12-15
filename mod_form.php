@@ -71,6 +71,13 @@ class mod_threesixo_mod_form extends moodleform_mod {
         $roleoptions[0] = get_string('allparticipants', 'mod_threesixo');
         ksort($roleoptions);
         $mform->addElement('select', 'participantrole', get_string('participants', 'mod_threesixo'), $roleoptions);
+        $hierarchyoptions = [
+            1 => get_string('applyrestriction', 'mod_threesixo'),
+            0 => get_string('donotapplyrestriction', 'mod_threesixo')
+
+        ];
+        $mform->addElement('select', 'applyhierarchy', get_string('hierarchyrestricted', 'mod_threesixo'), $hierarchyoptions);
+        $mform->addHelpButton('applyhierarchy', 'applyhierarchy', 'mod_threesixo');
 
         // Releasing options.
         $releasingoptions = [
